@@ -1,0 +1,50 @@
+-XX:+PrintCompilation => prints compilation of code on cmd
+-XX:+UnlockDiagnosticVMOptions -XX:+LogCompilation => file will be created for compilation
+-XX:+PrintCodeCache => to print code cache size
+CMD => jconsole => codecache size in UI
+
+
+//time in millis , compilation order ,s->synchronized , n-> native
+
+// % -> native code running in code cache
+// ! -> exception handling
+// compilation levels 0 to 4
+
+//0 -> no compilation , code is being interpreted
+//1 to 4 => deeper level of compilations
+
+---------------------------------------------------------------------------------------
+JAVA_HOME
+C:\Program Files\Java\jdk-21\bin
+
+##JVM Info
+on CMD :
+
+java -XX:+PrintFlagsFinal => CICompilerCount
+jps
+jinfo -flag CICompilerCount 21684
+
+---------------------------------------------------------------------------------------
+String Pool:
+
+PA => -XX:+PrintStringTableStatistics
+
+---------------------------------------------------------------------------------------
+==Heap Size
+
+CMD => java -XX:+UnlockDiagnosticVMOptions -XX:PrintFlagsFinal ==> InitialHeapSize
+
+-XX:MaxHeapSize=600m  => -Xmx
+-XX:InitialHeapSize=1g => -Xms
+
+PA => -XX:MaxHeapSize=60m -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal
+
+PA => -XX:InitialHeapSize=1g -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal
+
+for Java 11+ PA=> -Xms300m
+---------------------------------------------------------------------------------------
+Monitoring  Heap :
+
+C:\okapi\workspace\nagesh\java-optimization\visualvm_218\visualvm_218\bin
+
+C:\okapi\workspace\nagesh\java-optimization\jmc-8.3.1_windows-x64\jmc-8.3.1_windows-x64\JDK Mission Control
